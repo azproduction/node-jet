@@ -1,10 +1,47 @@
 Jet
 ===
 
+    var $ = Jet();
+    
+    // jQeury-style plugins
+    $.fn.pewpew = function () { return "pewpew" };
+    $.fn.crudRouter = new CrudRouter(); // Mock CRUD Router
 
+    $('/:action?').get(function ($) {
+        $.send($.PATH.action + ' ' + JSON.stringify($.GET));
+    });
+
+    // Uses plugin function pewpew
+    $('/pewpew').get(function ($) {
+        $.send($.pewpew());
+    })
+    // Then Binds to DELETE method
+    .del(function ($) {
+        $.send($.POST.id + ' deleted!');
+    });
+
+    // Binds to 4 main methods GET POST PUT DELETE
+    // Router '/:action' already exists - uses cache
+    $('/:action').crud(function ($) {
+        $.crudRouter.action($.PATH.action, $);
+    });
+
+    // You can also use RegExp as selector
+    $(/^\/read\/[0-9]{1,5}$/).get(function ($) {
+        $.send('pass');
+    });
+
+    $.listen(80); // same interface as http.Server#listen
+
+Example
+-------
+
+See examples basic.js
+
+`node basic.js`
 
 Licence
-=======
+-------
 
 (The MIT License)
 
