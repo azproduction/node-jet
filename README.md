@@ -1,9 +1,19 @@
 Jet
 ===
 
-    var $ = Jet();
+__Simple example__ - shortest ever REST server!
+
+    require('jet').$('/:action?').rest(function ($) {
+        $.send($.METHOD + ': ' + $.PATH.action);
+    }).listen(); // That's all!
+
+__More complex example__
+
+    var $ = Jet('*'); // load all ('*') plugins
     
     // jQeury-style plugins
+
+    // Add local plugins
     $.fn.pewpew = function () { return "pewpew" };
     $.fn.crudRouter = new CrudRouter(); // Mock CRUD Router
 
@@ -33,12 +43,56 @@ Jet
 
     $.listen(80); // same interface as http.Server#listen
 
+    // Print log info - see plugins stat for info
+    console.log($.stat(true));
+
 Example
 -------
 
 See examples basic.js
 
 `node basic.js`
+
+Plugins
+-------
+
+All basic Jet plugins are located in `lib/plugins/`
+
+ * `stat` - server, os, node statistics renderer (html and console views are supported)
+
+
+    $ node basic.js
+     Server
+     - Interface:           0.0.0.0:80
+     - Connections:         0
+     - uid:                 37007
+     - gid:                 10513
+     - pid:                 5076
+     - Platform:            cygwin
+     Node
+     - Version:             v0.4.5
+     - Working directory:   /home/azproduction/node-jet/examples
+     - Require paths:       /home/azproduction/.node_modules
+                            /home/azproduction/.node_libraries
+                            /usr/local/lib/node
+     Memory
+     - Resident Size:       200 Mb
+     - Virtual Size:        12 Mb
+     - V8 Heap used/total:  1/4 Mb
+     OS
+     - Host name:           azprod_nb_w7
+     - Name and version:    CYGWIN_NT-6.1-WOW64 1.7.9(0.237/5/3)
+     - Uptime:              2h 15m (8125.27)
+     - Load avg:            ???
+     - Memory free/total:   0/3957 Mb
+     - CPU:                 4X Intel(R) Core(TM) i5 CPU M 540 @ 2.53GHz
+     Routes
+     - /:action?:           POST onGetAction
+                            GET onGetAction
+                            PUT onGetAction
+                            DELETE onGetAction
+     - /stat:               GET <anonymous>
+             ... more routes ...
 
 Licence
 -------
