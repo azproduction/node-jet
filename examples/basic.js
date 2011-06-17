@@ -28,7 +28,7 @@ $.listen(80);
 
 // Print statistics using stat plugin
 // true - console view
-console.log($.stat(true));
+$.stat();
 
 // Displayed as:
 /*

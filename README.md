@@ -3,7 +3,7 @@ Jet
 
 __Simple example__ - shortest ever REST server!
 
-    require('jet').$('/:action?').rest(function ($) {
+    require('jet').$(function Action($) {
         $.send($.METHOD + ': ' + $.PATH.action);
     }).listen(); // That's all!
 
@@ -60,8 +60,13 @@ All basic Jet plugins are located in `lib/plugins/`
 
  * `stat` - server, os, node statistics renderer (html and console views are supported)
 
+Plugin $.stat
+-------------
 
-    $ node basic.js
+`$.stat(type="console")` - prints server, os, node, routes statistics (`"html"` and `"console"` views are supported)
+if type `"console"` stat prints all to STDOUT else returns as String
+
+     $ node basic.js
      Server
      - Interface:           0.0.0.0:80
      - Connections:         0
@@ -93,6 +98,7 @@ All basic Jet plugins are located in `lib/plugins/`
                             DELETE onGetAction
      - /stat:               GET <anonymous>
              ... more routes ...
+
 
 Licence
 -------
