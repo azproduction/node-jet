@@ -3,12 +3,15 @@ Jet
 
 __Simple example__ - shortest ever REST server!
 
+```javascript
     require('jet').$(function Action($) {
         $.send($.METHOD + ': ' + $.PATH.action);
     }).listen(); // That's all!
+```
 
 __More complex example__
 
+```javascript
     var $ = Jet('*'); // load all ('*') plugins
     
     // jQeury-style plugins
@@ -45,13 +48,12 @@ __More complex example__
 
     // Print log info - see plugins stat for info
     console.log($.stat(true));
+```
 
 Example
 -------
 
-See examples basic.js
-
-`node basic.js`
+See examples/ dir
 
 Plugins
 -------
@@ -59,6 +61,21 @@ Plugins
 All basic Jet plugins are located in `lib/plugins/`
 
  * `stat` - server, os, node statistics renderer (html and console views are supported)
+ * `cookie` - cookie getter setter
+
+__Its simple to include plugin___
+
+
+```javascript
+    var Jet = require('../lib/jet.js'),
+       $ = Jet('stat'); // stat plugin only
+
+    // $ = Jet('stat', 'cookie'); - for selected
+    // $ = Jet('*'); - for all plugins
+    $.stat();
+
+    // do stuff with plugins...
+```
 
 Plugin $.stat
 -------------
@@ -66,6 +83,7 @@ Plugin $.stat
 `$.stat(type="console")` - prints server, os, node, routes statistics (`"html"` and `"console"` views are supported)
 if type `"console"` stat prints all to STDOUT else returns as String
 
+```bash
      $ node basic.js
      Server
      - Interface:           0.0.0.0:80
@@ -98,7 +116,20 @@ if type `"console"` stat prints all to STDOUT else returns as String
                             DELETE onGetAction
      - /stat:               GET <anonymous>
              ... more routes ...
+```
 
+Plugin $.cookie
+---------------
+
+Jet view methods:
+
+ - `$.cookie(name, valueOrFalse, options)`
+ - `$.addCookie(name, value, options)`
+ - `$.setCookie(name, value, options)`
+ - `$.removeCookie(name, options)`
+ - `$.deleteCookie(name, options)`
+
+see `examples/cookie.js` for more details
 
 Licence
 -------
