@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+    <html>
+    <head>
+        <title></title>
+        <meta http-equiv="refresh" content="<%=timeout%>;URL=<%=location%>">
+    </head>
+    <body>
+        <%=message%>
+    </body>
+</html>

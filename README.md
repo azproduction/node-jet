@@ -64,6 +64,7 @@ All basic Jet plugins are located in `lib/plugins/`
  * `cookie` - cookie getter setter
  * `conf` - global config
  * `session` - session plugin (session providers: `local` - in-memory session storage)
+ * `flash` - flash redirect plugin (`simple` template only)
 
 __Its ease to include plugin___
 
@@ -158,6 +159,15 @@ Jet:
  - `$.sessionInit(sessonProviderName, options)` session initializer
 
 see `examples/session.js` for more details
+
+Plugin $.flash
+--------------
+
+Jet view:
+
+ - `$.flash(messageOrOptions, options)` flash redirect
+
+see `examples/flash.js` for more details
 
 Licence
 -------
