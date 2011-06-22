@@ -62,6 +62,8 @@ All basic Jet plugins are located in `lib/plugins/`
 
  * `stat` - server, os, node statistics renderer (html and console views are supported)
  * `cookie` - cookie getter setter
+ * `conf` - global config
+ * `session` - session plugin (session providers: `local` - in-memory session storage)
 
 __Its ease to include plugin___
 
@@ -137,9 +139,25 @@ Plugin $.conf
 Both jet view and jet methods:
 
  - `$.conf(name, value)` getter setter like jQuery attr
+
+Jet:
+
  - `$.conf.fromJSON(fileName)` load plain JSON file
 
 see `examples/configure.js` for more details
+
+Plugin $.session
+----------------
+
+Jet view:
+
+ - `$.session(name, valueOrCallback, callback)` asynchronous session getter-setter
+
+Jet:
+
+ - `$.sessionInit(sessonProviderName, options)` session initializer
+
+see `examples/session.js` for more details
 
 Licence
 -------
