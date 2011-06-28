@@ -3,7 +3,7 @@ var Jet = require('../lib/jet.js');
 
 // Create jet server with required plugins
 // or we just can use .$
-Jet('flash', 'stat')
+Jet('router', 'flash', 'stat')
 
 // we can skip '/'
 // and type just .get(function () { ... })

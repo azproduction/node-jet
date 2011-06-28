@@ -1,17 +1,14 @@
 // Session example
 var Jet = require('../lib/jet.js'),
     // Create jet server with required plugins
-    $ = Jet('cookie', 'session', 'stat');
-
-// All session functions are asynchronous
-
-// Creates session with provider `local`
-// @see lib/plugins/session/provider/local/index.js
-$.sessionInit('local')
+    // Creates session with provider `local`
+    // @see lib/plugins/session/provider/local/index.js
+    // All session functions are asynchronous
+    $ = Jet('router', 'cookie', {'session': 'local'}, 'stat');
 
 // Add session
 // http://localhost/add/:name/:value
-.get(function add_Name_Value($) {
+$.get(function add_Name_Value($) {
 
     // add session
     $.session($.PATH.name, $.PATH.value, function (err) {

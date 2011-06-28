@@ -75,6 +75,8 @@ var Jet = require('../lib/jet.js'),
 
 // $ = Jet('stat', 'cookie'); - for selected
 // $ = Jet('*'); - for all plugins
+// $ = Jet("name0").use("name1", {"name2": {"options":"options"}}, function name3(){ ... }, ...rest)
+// $ = Jet({"name": {"options":"options"}})
 $.stat();
 
 // do stuff with plugins...
