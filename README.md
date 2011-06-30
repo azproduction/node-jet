@@ -53,7 +53,7 @@ console.log($.stat(true));
 Example
 -------
 
-See examples/ dir
+See `examples/` dir
 
 Plugins
 -------
@@ -65,8 +65,9 @@ All basic Jet plugins are located in `lib/plugins/`
  * `conf` - global config
  * `session` - session plugin (session providers: `local` - in-memory session storage)
  * `flash` - flash redirect plugin (`simple` template only)
+ * `template` - render plugin (`simple` template only)
 
-__Its ease to include plugin___
+__Its ease to include plugin__
 
 
 ```javascript
@@ -77,13 +78,14 @@ var Jet = require('../lib/jet.js'),
 // $ = Jet('*'); - for all plugins
 // $ = Jet("name0").use("name1", {"name2": {"options":"options"}}, function name3(){ ... }, ...rest)
 // $ = Jet({"name": {"options":"options"}})
+// $ = Jet("template:simple")
 $.stat();
 
 // do stuff with plugins...
 ```
 
-Plugin $.stat
--------------
+Plugin stat
+-----------
 
 `$.stat(type="console")` - prints server, os, node, routes statistics (`"html"` and `"console"` views are supported)
 if type `"console"` stat prints all to STDOUT else returns as String
@@ -123,8 +125,8 @@ $ node basic.js
          ... more routes ...
 ```
 
-Plugin $.cookie
----------------
+Plugin cookie
+-------------
 
 Jet view methods:
 
@@ -136,8 +138,8 @@ Jet view methods:
 
 see `examples/cookie.js` for more details
 
-Plugin $.conf
--------------
+Plugin conf
+-----------
 
 Both jet view and jet methods:
 
@@ -149,8 +151,8 @@ Jet:
 
 see `examples/configure.js` for more details
 
-Plugin $.session
-----------------
+Plugin session
+--------------
 
 Jet view:
 
@@ -162,14 +164,25 @@ Jet:
 
 see `examples/session.js` for more details
 
-Plugin $.flash
---------------
+Plugin flash
+------------
 
 Jet view:
 
  - `$.flash(messageOrOptions, options)` flash redirect
 
 see `examples/flash.js` for more details
+
+Plugin template
+---------------
+
+Jet view:
+
+ - `$.render(pathTOTemplate, data)` renders specified template with data
+
+There also can be helper methods named by template engine name eg: `$.simple(pathTOTemplate, data)`
+
+see `examples/template.js`,  `examples/template_simple_engine.js` for more details
 
 Licence
 -------

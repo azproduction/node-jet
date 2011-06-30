@@ -1,0 +1,9 @@
+<!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>Action <%=action%> page</title>
+    </head>
+    <body>
+        <h1>Action <%=action%> page</h1>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>Index page</title>
+    </head>
+    <body>
+        <h1>Index page</h1>
+        <%=message%>
+    </body>
+</html>
