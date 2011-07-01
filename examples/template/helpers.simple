@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>Helpers page</title>
+    </head>
+    <body>
+        <h1>Helpers page: <%=date()%></h1>
+        <%=escape(message)%>
+    </body>
+</html>

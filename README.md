@@ -184,6 +184,32 @@ There also can be helper methods named by template engine name eg: `$.simple(pat
 
 see `examples/template.js`,  `examples/template_simple_engine.js` for more details
 
+__Default path and helpers__
+
+````javascript
+var helpers = {
+    date: function () {
+        return new Date + '';
+    },
+    escape: function (html) {
+        // Copy-paste utils.escape
+        return String(html)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+},
+
+template = {
+    simple: {
+        path: __dirname + '/template',
+        helpers: helpers
+    }
+}
+Jet('router', 'stat', {template: template});
+````
+
 Licence
 -------
 
