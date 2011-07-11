@@ -1,5 +1,7 @@
 // Conf Example
 
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
 require('../lib/jet.js').$
 
 .conf.fromJSON('./configure/config.json')

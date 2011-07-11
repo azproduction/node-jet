@@ -1,5 +1,9 @@
-var Jet = require('../lib/jet.js'),
-    $ = Jet('*'); // true or '*' - loads all plugins
+// Basic example
+
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
+var jet = require('../lib/jet.js'),
+    $ = jet('*'); // true or '*' - loads all plugins
                   // list of names - array ['stat', 'pewpew'] or list 'stat', 'pewpew'
 
 // Add local plugin
@@ -8,7 +12,7 @@ $.fn.pewpew = function () {
 };
 
 // Function name (onGetAction) will be displayed in stats
-function onGetAction ($) {
+function onGetAction($) {
     var result = JSON.stringify($.GET) + JSON.stringify($.PATH) + $.pewpew();
 
     $.send(result);

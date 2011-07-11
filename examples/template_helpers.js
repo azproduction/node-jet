@@ -1,8 +1,10 @@
 // Template example
 
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
 var helpers = {
     date: function () {
-        return new Date + '';
+        return new Date();
     },
     escape: function (html) {
         // Copy-paste utils.escape
@@ -22,11 +24,11 @@ template = {
 };
 
 
-var Jet = require('../lib/jet.js');
+var jet = require('../lib/jet.js');
 
 // Create jet server with required plugins
 // or we just can use .$
-Jet('router', 'stat', {template: template})
+jet('router', 'stat', {template: template})
 
 // we can skip '/'
 // and type just .get(function () { ... })

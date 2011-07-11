@@ -1,9 +1,12 @@
 // Flash example
-var Jet = require('../lib/jet.js');
+
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
+var jet = require('../lib/jet.js');
 
 // Create jet server with required plugins
 // or we just can use .$
-Jet('router', 'template:simple', 'flash', 'stat')
+jet('router', 'template:simple', 'flash', 'stat')
 
 // we can skip '/'
 // and type just .get(function () { ... })

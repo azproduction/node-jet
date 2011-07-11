@@ -1,10 +1,13 @@
 // Session example
-var Jet = require('../lib/jet.js'),
+
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
+var jet = require('../lib/jet.js'),
     // Create jet server with required plugins
     // Creates session with provider `local`
     // @see lib/plugins/session/provider/local/index.js
     // All session functions are asynchronous
-    $ = Jet('router', 'cookie', {'session': 'local'}, 'stat');
+    $ = jet('router', 'cookie', {'session': 'local'}, 'stat');
 
 // Add session
 // http://localhost/add/:name/:value

@@ -1,5 +1,7 @@
 // Tiny Jet example
 
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
 // selector from handler's name
 // Action -> "/:action";
 // action -> "/action";

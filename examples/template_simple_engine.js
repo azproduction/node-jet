@@ -1,9 +1,12 @@
 // Template example
-var Jet = require('../lib/jet.js');
+
+/*jshint node: true, white: true, newcap: true, eqnull: true, eqeqeq: true, curly: true, boss: true */
+
+var jet = require('../lib/jet.js');
 
 // Create jet server with required plugins
 // or we just can use .$
-Jet('router', {'template': 'simple'}, 'stat')
+jet('router', {'template': 'simple'}, 'stat')
 
 // can also use
 // Jet('router', {'template': ['simple', 'ejs', 'jade']}, 'stat')
