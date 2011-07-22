@@ -2,6 +2,17 @@
  * Index Controller
  */
 
+// 1. Own Routes:
+// GET /ya/:hoo?              -> IndexController.yahoo
+// GET,PUT,POST,DELETE /info  -> IndexController.restInfo
+// GET /                      -> IndexController.index
+// GET /bla/bla/:bla          -> IndexController.bla_bla_Bla
+//
+// 2. Routes from traits:
+// GET /common                -> UtilsTrait.common
+// GET /pew/pew               -> UtilsTrait.pew_pew
+// GET /common/from/mixins    -> MixinsTrait.common_from_mixins
+//
 var IndexController = {
     // use traits
     $traits: 'utils', // or 'name1,name2' or ['name1','name2']
@@ -11,7 +22,8 @@ var IndexController = {
     // 2. Global routes           [med]
     // 3. Controller level routes [high]
     $routes: {
-        yahoo: "GET /ya/:hoo?" // method is optional default is GET
+        yahoo: "GET /ya/:hoo?", // method is optional default is GET
+        maskedMethod: null // mask method
     },
 
     _privateMethod: function () {
@@ -33,8 +45,13 @@ var IndexController = {
 
     },
 
-    // will be mapped as "GET /bla/bla/bla" - index controller bla_bla_bla action
-    bla_bla_bla: function ($) {
+    // will be masked
+    maskedMethod: function ($) {
+
+    },
+
+    // will be mapped as "GET /bla/bla/:bla" - index controller bla_bla_Bla action
+    bla_bla_Bla: function ($) {
 
     }
 };
