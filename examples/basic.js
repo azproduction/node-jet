@@ -25,7 +25,7 @@ $('/:action?').rest(onGetAction);
 // handler - <anonymous>
 $('/stat').get(function ($view) {
     // Send statistics
-    $view.send('<pre>' + $.stat() + '</pre>');
+    $view.send('<pre>' + $.stat('html') + '</pre>');
 });
 
 $.listen(80);
